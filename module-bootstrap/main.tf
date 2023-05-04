@@ -15,11 +15,11 @@
  
 resource "vault_namespace" "tenant_namespace" {
   namespace = "admin"
-  path = var.name
+  path      = var.name
 }
 
-resource "vault_policy" "tentant_policy" {
-  name = "${var.name}_admin"
+resource "vault_policy" "tentant_admin_policy" {
+  name      = "${var.name}_admin"
   namespace =  vault_namespace.tenant_namespace.path_fq
 
   policy = <<EOT
@@ -60,14 +60,51 @@ path "auth/token/*" {
 EOT
 }
 
-resource "vault_identity_group" "tentant_group" {
-  name     = "${var.name}_group"
+resource "vault_identity_group" "tenant_group" {
+  name      = "${var.name}_group"
   namespace =  vault_namespace.tenant_namespace.path_fq
 
   type     = "internal"
-  policies = ["${var.name}_admin"]
+  policies = [vault_policy.tentant_admin_policy.name]
 
   metadata = {
     version = "2"
   }
+}
+
+resource "vault_auth_backend" "userpass" {
+  type      = "userpass"
+  namespace =  vault_namespace.tenant_namespace.path_fq
+}
+
+resource "vault_generic_endpoint" "u1" {
+  count                = length(var.admin_user_names)
+  depends_on           = [vault_auth_backend.userpass]
+  namespace            =  vault_namespace.tenant_namespace.path_fq
+
+  path                 = "auth/userpass/users/${var.admin_user_names[count.index]}"
+  ignore_absent_fields = true
+
+  data_json = <<EOT
+{
+  "password": "changeme"
+}
+EOT
+}
+
+resource "vault_identity_entity" "tenant_entitys" {
+  count     = length(var.admin_user_names)
+  namespace =  vault_namespace.tenant_namespace.path_fq
+
+  name      = var.admin_user_names[count.index]
+  policies  = [vault_policy.tentant_admin_policy.name]
+}
+
+resource "vault_identity_entity_alias" "tenant_alias" {
+  count     = length(var.admin_user_names)
+  namespace =  vault_namespace.tenant_namespace.path_fq
+
+  name            = var.admin_user_names[count.index]
+  mount_accessor  = vault_auth_backend.userpass.accessor
+  canonical_id    = vault_identity_entity.tenant_entitys[count.index].id
 }
