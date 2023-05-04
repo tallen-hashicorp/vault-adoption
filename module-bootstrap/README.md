@@ -31,15 +31,20 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [vault_identity_group.tentant_group](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/identity_group) | resource |
+| [vault_auth_backend.userpass](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/auth_backend) | resource |
+| [vault_generic_endpoint.u1](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/generic_endpoint) | resource |
+| [vault_identity_entity.tenant_entitys](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/identity_entity) | resource |
+| [vault_identity_entity_alias.tenant_alias](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/identity_entity_alias) | resource |
+| [vault_identity_group.tenant_group](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/identity_group) | resource |
 | [vault_namespace.tenant_namespace](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/namespace) | resource |
-| [vault_policy.tentant_policy](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/policy) | resource |
+| [vault_policy.tentant_admin_policy](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/policy) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_name"></a> [name](#input\_name) | n/a | `string` | n/a | yes |
+| <a name="input_admin_user_names"></a> [admin\_user\_names](#input\_admin\_user\_names) | Create Vault users and entities with these names | `list(string)` | n/a | yes |
+| <a name="input_name"></a> [name](#input\_name) | Team or Tenant name | `string` | n/a | yes |
 
 ## Outputs
 
