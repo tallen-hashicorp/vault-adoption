@@ -48,4 +48,7 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_tenant_group_policy_id"></a> [tenant\_group\_policy\_id](#output\_tenant\_group\_policy\_id) | n/a |
+| <a name="output_tenant_namespace_path"></a> [tenant\_namespace\_path](#output\_tenant\_namespace\_path) | n/a |
