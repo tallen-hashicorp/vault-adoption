@@ -1,4 +1,9 @@
-variable "name" {
+variable "namespace_path" {
+  description = "Vault Namespace Path"
+  type = string
+}
+
+variable "db_name" {
   description = "Database Name"
   type = string
 }
@@ -18,9 +23,3 @@ variable "db_password" {
   description = "Database Admin Password - this is for demo purposes only"
   type = string
 }
-
-variable "namespace_path" {
-  description = "Vault Namespace Path"
-  type = string
-}
-
