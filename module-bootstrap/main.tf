@@ -66,6 +66,7 @@ resource "vault_identity_group" "tenant_group" {
 
   type     = "internal"
   policies = [vault_policy.tentant_admin_policy.name]
+  member_entity_ids = [ for entity in vault_identity_entity.tenant_entitys: entity.id ]
 
   metadata = {
     version = "2"
@@ -101,8 +102,8 @@ resource "vault_identity_entity" "tenant_entitys" {
 }
 
 resource "vault_identity_entity_alias" "tenant_alias" {
-  count     = length(var.admin_user_names)
-  namespace =  vault_namespace.tenant_namespace.path_fq
+  count           = length(var.admin_user_names)
+  namespace       =  vault_namespace.tenant_namespace.path_fq
 
   name            = var.admin_user_names[count.index]
   mount_accessor  = vault_auth_backend.userpass.accessor

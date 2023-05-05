@@ -28,3 +28,12 @@ resource "vault_database_secret_backend_role" "postgres_admin_role" {
   creation_statements = ["CREATE ROLE \"{{name}}\" WITH LOGIN PASSWORD '{{password}}' VALID UNTIL '{{expiration}}'; GRANT SELECT ON ALL TABLES IN SCHEMA public TO \"{{name}}\";"]
   default_ttl         = 3600 //1 hour
 }
+
+resource "vault_identity_group_policies" "policies" {
+  policies = [
+    "postgres",
+  ]
+
+  exclusive = false
+  group_id = vault_identity_group.internal.id
+}

@@ -23,3 +23,8 @@ variable "db_password" {
   description = "Database Admin Password - this is for demo purposes only"
   type = string
 }
+
+variable "group_id" {
+  description = "Vault group ID to assign policy"
+  type = string
+}
