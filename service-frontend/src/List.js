@@ -2,34 +2,24 @@ import React, {useState, useEffect} from 'react';
 
 function List() {
 
-    const [services, setServices] = useState([
-        {
-          id: "23872424",
-          name: "Test Service",
-          email: "tyler.allen@hashicorp.com",
-          imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-          role: "Tenent_1",
-          approved: true,
-        },
-        {
-            id: "1871313",
-            name: "Test Service",
-            email: "tyler.allen@hashicorp.com",
-            imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-            role: "Tenent_1",
-            approved: false,
-        }
-      ])
+    const [services, setServices] = useState([])
 
     useEffect(()=>{
-        console.log(services);//output 'sidebar'
-    },[services])
+        fetch("http://127.0.0.1:3001/")
+        .then((response) => response.json())
+        .then((data) => setServices(data))
+        .catch(error => {
+            
+        });
+    },[])
 
     function approveClicked(serviceId) {
-        let foundServiceIndex = services.findIndex(x => x.id === serviceId);
-        let tmpServices = services;
-        tmpServices[foundServiceIndex].approved = true;
-        setServices([...tmpServices])
+        fetch("http://127.0.0.1:3001/approve/"+serviceId, {
+            method: "POST",
+          })
+            .then((response) => response.json()) // Parse the response as JSON
+            .then((data) => setServices(data)) // Do something with the data
+            .catch((error) => console.error(error)); // Handle errors
     }
 
     return (
