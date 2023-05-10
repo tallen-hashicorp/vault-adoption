@@ -10,6 +10,9 @@
   "author": "Tyler Allen (tyler.allen@hashicorp.com)",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "docker-names": "^1.2.1",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "node-random-name": "^1.0.1"
   }
 }
