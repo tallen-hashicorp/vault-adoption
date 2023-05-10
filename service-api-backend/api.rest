@@ -1,0 +1,16 @@
+POST http://127.0.0.1:3000 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Test Service",
+    "owners": [
+      {
+        "groupName": "tenant1",
+        "approved": true
+      }
+    ]
+}
+
+###
+
+GET http://127.0.0.1:3000 HTTP/1.1
