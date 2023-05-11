@@ -1,3 +1,4 @@
+
 module "bootstrap" {
   source          = "app.terraform.io/vault-adoption/vault-demo-database/module"
   version         = "0.0.2"
@@ -15,4 +16,9 @@ terraform {
       name = "tenant1-custom"
     }
   }
+}
+
+data "tfe_outputs" "bootstrap" {
+  organization = "vault-adoption"
+  workspace = "tenant1-bootstrap"
 }
