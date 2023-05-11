@@ -1,0 +1,9 @@
+[submodule "terraform-module-vault-demo-database-secrets"]
+	path = terraform-module-vault-demo-database-secrets
+	url = git@github.com:tallen-hashicorp/terraform-module-vault-demo-database-secrets.git
+[submodule "terraform-module-vault-demo-database"]
+	path = terraform-module-vault-demo-database
+	url = git@github.com:tallen-hashicorp/terraform-module-vault-demo-database.git
+[submodule "terraform-module-vault-demo-bootstrap"]
+	path = terraform-module-vault-demo-bootstrap
+	url = git@github.com:tallen-hashicorp/terraform-module-vault-demo-bootstrap.git
