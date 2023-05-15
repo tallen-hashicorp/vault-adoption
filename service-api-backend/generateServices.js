@@ -17,11 +17,11 @@ function generateServices(count){
     // HardCode Tenant1 used Through this demo
     let services = [{
         id: 0,
-        name: "dockerNames.getRandomName(true)",
-        email: email,
-        imageUrl: image,
-        role: role,
-        approved: Math.random() < 0.5,
+        name: "tenant_1",
+        email: "tyler.allen@hashicorp.com",
+        imageUrl: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+        role: "Admin",
+        approved: false,
       }]
     for (let index = 1; index < count+1; index++) {
         const email = random_name({ random: Math.random }).toLowerCase().replace(/\s/g, '.') + "@hashicorp.com";
