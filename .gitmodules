@@ -7,3 +7,6 @@
 [submodule "terraform-module-vault-demo-bootstrap"]
 	path = terraform-module-vault-demo-bootstrap
 	url = git@github.com:tallen-hashicorp/terraform-module-vault-demo-bootstrap.git
+[submodule "workspace-tenant-bootstrap/sentinel-vault-demo"]
+	path = workspace-tenant-bootstrap/sentinel-vault-demo
+	url = git@github.com:tallen-hashicorp/sentinel-vault-demo.git
