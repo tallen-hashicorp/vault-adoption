@@ -11,8 +11,5 @@
 
 ## Next Steps
 - Metadata
-
-- Secrets Group Adding Module
-
 - Provider getting info from Api
 
