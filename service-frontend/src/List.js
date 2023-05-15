@@ -1,11 +1,17 @@
 import React, {useState, useEffect} from 'react';
 
+//Use same URL but port 3001
+let backendURL = window.location.href
+backendURL = backendURL.replace(/:\d*\/$/,"")
+backendURL = backendURL.replace(/\/$/,"")
+backendURL = backendURL + ":3001"
+
 function List() {
 
     const [services, setServices] = useState([])
 
     useEffect(()=>{
-        fetch("http://127.0.0.1:3001/")
+        fetch(backendURL + "/")
         .then((response) => response.json())
         .then((data) => setServices(data))
         .catch(error => {
@@ -14,7 +20,7 @@ function List() {
     },[])
 
     function approveClicked(serviceId) {
-        fetch("http://127.0.0.1:3001/approve/"+serviceId, {
+        fetch(backendURL + "/approve/"+serviceId, {
             method: "POST",
           })
             .then((response) => response.json()) // Parse the response as JSON
