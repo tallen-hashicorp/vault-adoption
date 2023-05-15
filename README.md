@@ -16,5 +16,3 @@
 
 - Provider getting info from Api
 
-- After DB is done look at custom provider, we want to hit an API with eveyone that has access so we can track it in a dashboard
-

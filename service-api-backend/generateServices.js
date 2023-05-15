@@ -22,8 +22,17 @@ function generateServices(count){
         imageUrl: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
         role: "Admin",
         approved: false,
-      }]
-    for (let index = 1; index < count+1; index++) {
+      },
+      {
+        id: 1,
+        name: "tenant_2",
+        email: "tyler.allen@hashicorp.com",
+        imageUrl: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+        role: "Admin",
+        approved: false,
+      }
+    ]
+    for (let index = 2; index < count+2; index++) {
         const email = random_name({ random: Math.random }).toLowerCase().replace(/\s/g, '.') + "@hashicorp.com";
         const name = dockerNames.getRandomName(true);
         const role = name.split("_")[1]

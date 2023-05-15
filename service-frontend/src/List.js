@@ -28,6 +28,15 @@ function List() {
             .catch((error) => console.error(error)); // Handle errors
     }
 
+    function devlineClicked(serviceId) {
+        fetch(backendURL + "/decline/"+serviceId, {
+            method: "POST",
+          })
+            .then((response) => response.json()) // Parse the response as JSON
+            .then((data) => setServices(data)) // Do something with the data
+            .catch((error) => console.error(error)); // Handle errors
+    }
+
     return (
         <ul role="list" className="divide-y divide-gray-100">
             {services.map((service) => (
@@ -43,7 +52,10 @@ function List() {
                     <p className="text-sm leading-6 text-gray-900">{service.role}</p>
                     {service.approved ? (
                     <div className="mt-1 flex items-center gap-x-1.5">
-                        <div className="flex-none rounded-full bg-emerald-500/20 p-1">
+                        <button onClick={() => devlineClicked(service.id)} className="bg-amber-500 hover:bg-amber-700 text-white font-bold py-1 px-5 mr-11 rounded">
+                        Decline
+                        </button>
+                        <div className="flex-none rounded-full bg-amber-500/20 p-1">
                         <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
                         </div>
                         <p className="text-xs leading-5 text-gray-500">Approved</p>

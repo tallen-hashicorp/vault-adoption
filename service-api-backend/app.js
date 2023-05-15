@@ -26,6 +26,12 @@ app.post('/approve/:serviceID', (req, res) => {
   res.send(services)
 })
 
+app.post('/decline/:serviceID', (req, res) => {
+  let foundServiceIndex = services.findIndex(x => x.id == req.params.serviceID);
+  services[foundServiceIndex].approved = false;
+  res.send(services)
+})
+
 app.get('/', (req, res) => {
   res.send(services)
 })
