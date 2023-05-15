@@ -12,7 +12,6 @@
 ## Next Steps
 - Metadata
 
-- Sentenal Calling API
 - Secrets Group Adding Module
 
 - Provider getting info from Api
