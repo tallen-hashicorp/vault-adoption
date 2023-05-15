@@ -10,3 +10,6 @@
 [submodule "sentinel-vault-demo"]
 	path = sentinel-vault-demo
 	url = git@github.com:tallen-hashicorp/sentinel-vault-demo.git
+[submodule "terraform-module-vault-demo-group-adding"]
+	path = terraform-module-vault-demo-group-adding
+	url = git@github.com:tallen-hashicorp/terraform-module-vault-demo-group-adding.git
