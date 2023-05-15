@@ -14,8 +14,16 @@ const images=[
 ]
 
 function generateServices(count){
-    let services = []
-    for (let index = 0; index < count; index++) {
+    // HardCode Tenant1 used Through this demo
+    let services = [{
+        id: 0,
+        name: "dockerNames.getRandomName(true)",
+        email: email,
+        imageUrl: image,
+        role: role,
+        approved: Math.random() < 0.5,
+      }]
+    for (let index = 1; index < count+1; index++) {
         const email = random_name({ random: Math.random }).toLowerCase().replace(/\s/g, '.') + "@hashicorp.com";
         const name = dockerNames.getRandomName(true);
         const role = name.split("_")[1]
@@ -27,7 +35,7 @@ function generateServices(count){
             imageUrl: image,
             role: role,
             approved: Math.random() < 0.5,
-          },)
+          })
     }
     return(services)
 }
