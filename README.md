@@ -146,23 +146,23 @@ terraform init
 terraform apply
 ```
 
-1. Update `line 5`  in `sentinel-vault-demo/restrict-bootstrap-on-api.sentinel` to use the IP from step 3. Once updated create a new [policy set](https://developer.hashicorp.com/terraform/cloud-docs/policy-enforcement/manage-policy-sets) in your TFE/TFC org to apply to all workspaces
+3. Update `line 5`  in `sentinel-vault-demo/restrict-bootstrap-on-api.sentinel` to use the IP from step 3. Once updated create a new [policy set](https://developer.hashicorp.com/terraform/cloud-docs/policy-enforcement/manage-policy-sets) in your TFE/TFC org to apply to all workspaces
 
 ```go
 
 req = http.request**("http://54.211.31.66:3001")**
 ```
 
-1. Create 3 workspaces in TFE/TFC called:
+4. Create 3 workspaces in TFE/TFC called:
     - `workspace-tenant1-bootstrap`
     - `workspace-tenant1-custom`
     - `workspace-tenant2-bootstrap`
-2. Add environment variables to each workspace for VAULT_ADDR & VAULT_TOKEN to include the Vault URL and token. This can also be achieved using [Variable Sets](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/variables#scope) 
+5. Add environment variables to each workspace for VAULT_ADDR & VAULT_TOKEN to include the Vault URL and token. This can also be achieved using [Variable Sets](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/variables#scope) 
 
 ![variables](docs/var.png)
 
-1. Update the following changing the TFE/TFC configuration in the [main.tf](http://main.tf) file to match your org
+6. Update the following changing the TFE/TFC configuration in the [main.tf](http://main.tf) file to match your org
     - `workspace-tenant1-bootstrap`
     - `workspace-tenant1-custom`
     - `workspace-tenant2-bootstrap`
-2. Run Terraform init and apply on each workspace
+7. Run Terraform init and apply on each workspace
