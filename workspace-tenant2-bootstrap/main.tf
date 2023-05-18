@@ -6,8 +6,8 @@ module "bootstrap" {
 }
 
 variable "name" {
-  type = string
-  default = "tenant_2"
+  type      = string
+  default   = "tenant_2"
 }
 
 terraform {
