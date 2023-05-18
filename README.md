@@ -112,6 +112,7 @@ Each business unit or tenant will then be able to quickly request new technology
 
 ---
 # How to use this repo
+This repository serves as a demo for using the Vault adoption described above. It should not be used for production environments.
 
 # Components
 
